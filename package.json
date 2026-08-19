@@ -1,0 +1,41 @@
+{
+  "name": "svar-kiosk-app",
+  "version": "1.0.0",
+  "description": "Lukket kiosk-app: navn/klasse -> 10 sek. tekst -> fritekst-svar (max 2000 tegn) -> afsendes automatisk pr. mail",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:all": "electron-builder --mac --win"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  },
+  "build": {
+    "appId": "fo.fss.svarkiosk",
+    "productName": "Svar Kiosk",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "config.js",
+      "renderer/**/*"
+    ],
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "category": "public.app-category.education"
+    },
+    "win": {
+      "target": [{ "target": "portable", "arch": ["x64"] }]
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}

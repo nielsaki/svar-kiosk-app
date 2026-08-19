@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fo">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>Svar Kiosk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body oncontextmenu="return false">
+    <main id="app">
+      <section id="screen-form" class="screen active">
+        <h1>Udfyld inden du starter</h1>
+        <label for="navn">Navn</label>
+        <input id="navn" type="text" autocomplete="off" maxlength="200" />
+        <label for="klasse">Klasse</label>
+        <input id="klasse" type="text" autocomplete="off" maxlength="100" />
+        <button id="btn-to-countdown" disabled>Videre</button>
+      </section>
+
+      <section id="screen-countdown" class="screen">
+        <p id="countdown-text" class="countdown-text"></p>
+        <div id="countdown-number" class="countdown-number">10</div>
+        <button id="btn-to-answer" disabled>Videre</button>
+      </section>
+
+      <section id="screen-answer" class="screen">
+        <h1>Skriv dit svar</h1>
+        <textarea id="svar" maxlength="2000" placeholder="Skriv her..."></textarea>
+        <div id="char-counter" class="char-counter">0 / 2000</div>
+        <button id="btn-send">Send</button>
+      </section>
+
+      <section id="screen-sending" class="screen">
+        <p>Sender dit svar...</p>
+      </section>
+
+      <section id="screen-done" class="screen">
+        <h1>Tak!</h1>
+        <p>Dit svar er sendt.</p>
+      </section>
+
+      <section id="screen-error" class="screen">
+        <h1>Der gik noget galt</h1>
+        <p id="error-message"></p>
+        <button id="btn-retry">Prøv igen</button>
+      </section>
+    </main>
+
+    <div id="admin-overlay" class="overlay hidden">
+      <div class="admin-box">
+        <h2>Administrator</h2>
+        <label for="admin-password">Adgangskode</label>
+        <input id="admin-password" type="password" autocomplete="off" />
+        <p id="admin-error" class="admin-error"></p>
+        <div class="admin-actions">
+          <button id="admin-reset">Nulstil til næste elev</button>
+          <button id="admin-quit">Luk programmet</button>
+          <button id="admin-cancel">Annuller</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

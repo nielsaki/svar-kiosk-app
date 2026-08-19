@@ -1,0 +1,8 @@
+{
+  "name": "Svar Kiosk",
+  "short_name": "Svar Kiosk",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#10131a",
+  "theme_color": "#10131a"
+}
