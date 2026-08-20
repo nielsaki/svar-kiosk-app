@@ -176,8 +176,20 @@
   const BLOCKED_KEYS = new Set([
     "F11",
     "F12",
-    "Tab",
   ]);
+
+  // Sjov distraktion: Escape og Shift+Tab (de to mest oplagte "flugt"-taster)
+  // får en girafemoji til at hoppe op i bunden af skærmen.
+  const giraffe = document.getElementById("giraffe");
+  let giraffeTimer = null;
+
+  function popGiraffe() {
+    giraffe.classList.remove("pop");
+    void giraffe.offsetWidth; // genstart CSS-animationen selvom den allerede kører
+    giraffe.classList.add("pop");
+    if (giraffeTimer) clearTimeout(giraffeTimer);
+    giraffeTimer = setTimeout(() => giraffe.classList.remove("pop"), 1300);
+  }
 
   document.addEventListener("keydown", (e) => {
     if (!kioskActive) return;
@@ -190,6 +202,19 @@
     }
 
     if (adminOverlayOpen()) return; // lad admin-panelet bruge tastaturet frit
+
+    // Escape kan ikke forhindres i at forlade fuldskærm (browser-begrænsning),
+    // men vi kan stadig reagere på selve tastetrykket.
+    if (e.key === "Escape") {
+      popGiraffe();
+      return;
+    }
+
+    if (e.key === "Tab" && e.shiftKey) {
+      e.preventDefault();
+      popGiraffe();
+      return;
+    }
 
     const ctrlOrCmd = e.ctrlKey || e.metaKey;
     if (ctrlOrCmd && ["w", "q", "n", "t"].includes(e.key.toLowerCase())) {
