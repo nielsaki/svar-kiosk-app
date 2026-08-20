@@ -3,7 +3,7 @@
 // Denne fil bliver bagt ind i det færdige program (.app / .exe) når du bygger det,
 // så adgangskoden herunder skal være en Gmail APP-ADGANGSKODE (16 tegn), ALDRIG dit
 // rigtige Google-login. Opret en app-adgangskode her: https://myaccount.google.com/apppasswords
-// (kræver 2-trins-bekræftelse aktiveret på kontoen nielsaki@fss.fo).
+// (kræver 2-trins-bekræftelse aktiveret på Google-kontoen).
 
 module.exports = {
   smtp: {
@@ -11,7 +11,7 @@ module.exports = {
     port: 465,
     secure: true,
     auth: {
-      user: "nielsaki@fss.fo",
+      user: "dit-navn@dit-domæne.fo",
       pass: "SÆT_APP_ADGANGSKODE_HER", // 16-tegns app-adgangskode, ikke dit normale password
     },
   },
@@ -20,12 +20,12 @@ module.exports = {
   fromName: "Svar Kiosk",
 
   // Mail 1: kun klasse + svar (INGEN navn) - sendes til denne/disse adresse(r).
-  // Tilføj den anden alumni-adresse her, når du husker den, fx:
-  // anonym: ["bzt192@alumni.ku.dk", "den-anden@alumni.ku.dk"],
+  // Tilføj flere adresser i samme liste, fx:
+  // anonym: ["modtager1@eksempel.dk", "modtager2@eksempel.dk"],
   recipients: {
-    anonym: ["bzt192@alumni.ku.dk"],
+    anonym: ["modtager1@eksempel.dk"],
     // Mail 2: navn + klasse + svar - sendes hertil.
-    full: ["niels.aki.mork@gmail.com"],
+    full: ["modtager2@eksempel.dk"],
   },
 
   // Adgangskode DU (læreren/tilsynet) bruger til at afslutte kiosk-tilstand

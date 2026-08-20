@@ -23,10 +23,9 @@ af noget almindeligt program. Det hæver barren markant, men er ikke en garanti.
 - `smtp.auth.pass` — en **Gmail app-adgangskode** (16 tegn) til `nielsaki@fss.fo`,
   oprettet på https://myaccount.google.com/apppasswords (kræver 2-trins-bekræftelse
   aktiveret på kontoen). Brug ALDRIG dit rigtige login-password her.
-- `recipients.anonym` — modtager(e) af "klasse + svar"-mailen. Der ligger allerede
-  `bzt192@alumni.ku.dk`; tilføj den anden alumni-adresse i samme liste, når du husker den:
+- `recipients.anonym` — modtager(e) af "klasse + svar"-mailen, fx:
   ```js
-  anonym: ["bzt192@alumni.ku.dk", "den-anden@alumni.ku.dk"],
+  anonym: ["modtager1@eksempel.dk", "modtager2@eksempel.dk"],
   ```
 - `adminPassword` — adgangskoden DU bruger til at afslutte kiosk-tilstand eller
   nulstille til næste elev. Skift den fra `"SKIFT_MIG"` til noget eleverne ikke kan gætte.
