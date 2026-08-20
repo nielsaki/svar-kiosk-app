@@ -1,5 +1,9 @@
 # Svar Kiosk
 
+**Live side:** https://svar-kiosk-app.vercel.app — kør direkte i browseren, eller
+download Mac/Windows-appen fra samme side. Se [web/README.md](web/README.md) for
+detaljer om web-versionen.
+
 Lukket "kiosk"-program: eleven udfylder navn + klasse, skal se en tekst i 10 sekunder
 (kan ikke springes over), skriver derefter et frit svar (max 2000 tegn), og trykker Send.
 Programmet sender selv to mails via Gmail/SMTP:
