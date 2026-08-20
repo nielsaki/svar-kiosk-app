@@ -155,3 +155,34 @@ button:disabled {
   margin: 0 0 1rem;
   font-size: 1.2rem;
 }
+
+.download-links {
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #2a2f3a;
+  width: 100%;
+}
+
+.download-links p {
+  opacity: 0.75;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #3a3f4b;
+  background: transparent;
+  color: #f2f2f2;
+  text-decoration: none;
+}

@@ -5,6 +5,27 @@ roden af repoet. Eleven går ind på en almindelig URL i en browser i stedet for
 få en installeret .exe/.dmg. Samme flow: navn+klasse → 10 sek. tekst → fritekst-svar
 (max 2000 tegn) → sendes som to mails, ligesom Electron-versionen.
 
+Forsiden har også to download-knapper til selve Electron-appen (.dmg/.exe), så man
+nemt kan sende folk til én URL uanset om de vil køre den i browseren eller installere
+den. Filerne ligger som **GitHub Release-assets** (gratis, op til 2 GB pr. fil, ingen
+loginkrav for at downloade) på
+https://github.com/nielsaki/svar-kiosk-app/releases/latest — knapperne peger på de
+faste "latest download"-links, så de automatisk peger på nyeste version, næste gang
+der laves en ny release.
+
+**Sådan udgiver du en ny version af installer-filerne** (fx efter en ændring i
+`config.js` eller `main.js`):
+```
+npm run build:all
+gh release create v1.0.1 \
+  "dist/Svar Kiosk-1.0.1-universal.dmg" \
+  "dist/Svar Kiosk 1.0.1.exe" \
+  --title "Svar Kiosk 1.0.1"
+```
+(Filnavnene i `web/public/index.html`'s download-links antager stabile navne uden
+mellemrum - omdøb evt. filerne før upload, som gjort for v1.0.0, eller opdater
+linkene til de nye filnavne.)
+
 **Vigtig forskel fra Electron-versionen:** en webside kan IKKE låse skærmen lige så
 hårdt som en rigtig kiosk-app. Vi bruger browserens Fullscreen API + blokering af de
 mest almindelige genveje, men OS-niveau genveje (Alt/Cmd+Tab, at trykke Escape for at
